@@ -12,7 +12,7 @@ def contacts(request):
         user_message = request.POST.get("message")
         filename = f"сообщение_от_{user_name}.txt"
         message = f"Пользователь: {user_name} (телефон: {phone}) оставил сообщение '{user_message}'"
-        file = open(filename, "w")
+        file = open(filename, "w", encoding="utf-8")
         file.write(message)
         file.close()
     return render(request, "contacts.html")
