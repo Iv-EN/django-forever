@@ -17,7 +17,7 @@ class Product(models.Model):
         related_name="products",
         on_delete=models.SET_NULL,
         blank=True,
-        null=True
+        null=True,
     )
     price = models.FloatField(verbose_name="Стоимость покупки")
     created_at = models.DateTimeField(
