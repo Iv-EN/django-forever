@@ -3,7 +3,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = "django-insecure-mdohm@1%-)sisy!wk82co(3y+0de*!u%ql@!wqjdyj$3-0p-4#"
+SECRET_KEY = (
+    "django-insecure-mdohm@1%-)sisy!wk82co(3y+0de*!u%ql@!wqjdyj$3-0p-4#"
+)
 
 DEBUG = True
 
@@ -90,3 +92,6 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
