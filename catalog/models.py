@@ -14,6 +14,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         "Category",
         verbose_name="Категория",
+        related_name="products",
         on_delete=models.SET_NULL,
         blank=True,
         null=True
@@ -24,10 +25,6 @@ class Product(models.Model):
     )
     updated_at = models.DateTimeField(
         verbose_name="Дата изменения записи", auto_now_add=True
-    )
-    manufactured_at = models.DateTimeField(
-        verbose_name="дата производства продукта", blank=True,
-        null=True
     )
 
     def __str__(self):
