@@ -16,7 +16,7 @@ class Product(models.Model):
         verbose_name="Категория",
         on_delete=models.SET_NULL,
         blank=True,
-        null=True,
+        null=True
     )
     price = models.FloatField(verbose_name="Стоимость покупки")
     created_at = models.DateTimeField(
@@ -26,7 +26,8 @@ class Product(models.Model):
         verbose_name="Дата изменения записи", auto_now_add=True
     )
     manufactured_at = models.DateTimeField(
-        verbose_name="дата производства продукта"
+        verbose_name="дата производства продукта", blank=True,
+        null=True
     )
 
     def __str__(self):
