@@ -25,6 +25,9 @@ class Product(models.Model):
     updated_at = models.DateTimeField(
         verbose_name="Дата изменения записи", auto_now_add=True
     )
+    manufactured_at = models.DateTimeField(
+        verbose_name="дата производства продукта"
+    )
 
     def __str__(self):
         return self.name
