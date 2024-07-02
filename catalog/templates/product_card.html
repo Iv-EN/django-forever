@@ -1,0 +1,29 @@
+{% load my_tags %}
+<div class="row text-center">
+    <div class="col-12 d-flex align-items-stretch">
+        <div class="card mb-4 w-100">
+            <div class="card-header">
+                <h3 class="card-title pricing-card-title">{{ product.name|title }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="image-container mb-4" style="flex-grow: 1;">
+                    <img class="product-img" src="{{ product.preview | media_filter }}" style="max-width: 100%; max-height: 50%; object-fit: contain;">
+                </div>
+                <h4 class="my-0 font-weight-normal">Цена {{ product.price }} рублей</h4>
+                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                    <li>Категория: {{ product.category }}</li>
+                {% if card %}
+                    <li>Описание: {{ product.description }}</li>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>Дата создания: {{ product.created_at }}</li>
+                        <li>Дата изменения: {{ product.updated_at }}</li>
+                    </ul>
+                    <a class="p-2 btn btn-outline-primary" href="/">На главную</a>
+                {% else %}
+                    <li>Описание: {{ product.description|truncatechars:100 }}</li>
+                    <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary">Просмотреть</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

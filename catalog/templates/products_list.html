@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+{% block title %}
+    Главная страница
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        {% if card %}
+            {% render_product_card product card %}
+        {% else %}
+            {% for product in page_obj %}
+                <div class="col-md-3">
+                    {% render_product_card product card %}
+                </div>
+                {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                    </div><div class="row text-center">
+                {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+{% include "includes/inc_paginator.html" %}
+</div>
+{% endblock content %}
